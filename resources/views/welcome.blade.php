@@ -12,8 +12,8 @@
         <h1 style="color : white; font-weight:bold; padding-top:250px; text-align:center; font-size:80px;">Welcome to lap-time!!​</h1>
          
         <div style="margin:100px 0 0 660px;">
-            <button class="btn btn-primary" type="submit" style="display:block; padding: 4px 130px; font-weight: bold; font-size: 24px; border:3px solid #5D99FF;">Log in</button>
             
+            {!! link_to_route('login', 'Log in', [], ['class' => 'btn btn-lg btn-primary  col-sm-4', 'style' => 'display:block;  font-weight: bold; font-size: 24px; border:3px solid #5D99FF;']) !!}
             {!! link_to_route('signup.get', 'Sign up', [], ['class' => 'btn btn-lg btn-primary mt-4 col-sm-4', 'style' => 'display:block;  font-weight: bold; font-size: 24px; border:3px solid #5D99FF;']) !!}
         </div>
 
