@@ -13,8 +13,8 @@
          
         <div style="margin:100px 0 0 660px;">
             <button class="btn btn-primary" type="submit" style="display:block; padding: 4px 130px; font-weight: bold; font-size: 24px; border:3px solid #5D99FF;">Log in</button>
-            <button class="btn btn-primary mt-4" type="submit" style="display:block; padding: 4px 122px; font-weight: bold; font-size: 24px; border:3px solid #5D99FF;">Sign up</button>
             
+            {!! link_to_route('signup.get', 'Sign up', [], ['class' => 'btn btn-lg btn-primary mt-4 col-sm-4', 'style' => 'display:block;  font-weight: bold; font-size: 24px; border:3px solid #5D99FF;']) !!}
         </div>
 
         
@@ -27,3 +27,4 @@
         <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
     </body>
 </html>
+
