@@ -18,7 +18,7 @@
 
                 <div class="form-group" style="font-size: 44px; margin-left: 200px;">
                     {!! Form::label('content', 'Memo') !!}
-                    {!! Form::textarea('content', null, ['class' => 'form-control', 'style' => 'width: 700px; height: 300px; fontt-size: 80%;']) !!}
+                    {!! Form::textarea('content', null, ['class' => 'form-control', 'style' => 'width: 700px; height: 300px; font-size: 30px;']) !!}
                 </div>
 
                 {!! Form::submit('Add memo!', ['class' => 'btn btn-info', 'style' => 'width: 300px; height: 100px; border-radius: 60px; font-size: 44px; margin-left: 800px;']) !!}
