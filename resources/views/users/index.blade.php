@@ -37,7 +37,7 @@
             
             <div>
                 
-                <div class="text-center clock" ">
+                <div class="text-center clock" >
                     <p id="RealtimeClockArea2">NOW LOADINNG...</p>
                 </div>
                 
