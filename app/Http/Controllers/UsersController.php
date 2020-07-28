@@ -22,6 +22,7 @@ class UsersController extends Controller
             $laptimes = $user->laptimes()->latest()->take(3)->get();
             
         }
+        
         $default= Carbon::now()->format('Y-m-d');
         
        
@@ -38,9 +39,12 @@ class UsersController extends Controller
     public function create()
     {
         $laptime = new Laptime;
+        
+        
 
         return view('users.create', [
             'laptime' => $laptime,
+            
         ]);
     
     }
@@ -60,11 +64,12 @@ class UsersController extends Controller
             $laptimes = $user->laptimes()->latest()->take(3)->get();
         }
         
-        
+        $default= Carbon::now()->format('Y-m-d');
         
         
         return view('users.index', [
             'laptimes' => $laptimes,
+            'default' => $default,
         ]);
         
     }
@@ -129,7 +134,7 @@ class UsersController extends Controller
         $laptime = Laptime::findOrFail($id);
         
         $default= Carbon::now()->format('Y-m-d');
-
+        
         
         return view('users.edit', [
             'laptime' => $laptime,
