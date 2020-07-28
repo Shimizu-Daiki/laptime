@@ -21,19 +21,19 @@
             .contents{
                 display:flex;
                 flex-wrap: wrap;
-                
+                margin: 100px 0 0 100px;
             }
             
         </style>
 
     </head>
 
-    <body>
+    <body style="text-align: center; margin:auto;">
 
         {{-- ナビゲーションバー --}}
         @include('commons.navbar')
 
-        <div class="contents" style="margin: 100px 0 0 100px;">
+        <div class="contents">
             
             <div>
                 

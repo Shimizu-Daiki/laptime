@@ -7,12 +7,12 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     </head>
 
-    <body style="background-color : #444444">
+    <body style="background-color : #444444;">
 
         <h1 style="color : white; font-weight:bold; padding-top:50px; text-align:center; font-size:80px; margin: 80px 0 50px 0">Log in</h1>
          
-        <div class="row">
-            <div class="col-sm-4 offset-sm-3">
+        <div>
+            <div class="col-sm-4 offset-sm-3"  style="margin:auto; color: white;">
     
                 {!! Form::open(['route' => 'login.post']) !!}
                     <div class="form-group">
