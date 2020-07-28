@@ -56,7 +56,7 @@
             </div>
             
         </div>
-        <div style="margin-top: 0px; margin-left: 1300px; width: 300px; font-size:36px;">
+        <div style="margin-top: 0px; text-align: right; margin-right: 200px;">
             @include('user_add.add_button')  
         </div>
        

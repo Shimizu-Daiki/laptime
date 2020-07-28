@@ -5,14 +5,13 @@
 @section('content')
    
     <div class ="row">
-        <div class="col-9">
-            <h1 style="font-weight: bold;">{{ $date }}の記録</h1>
-            <div class="overflow-auto" style="width:800px; height:300px; border: 2px solid #000000; font-size:32px;">
+        <div class="col-6">
+            <h3>{{ $date }}の記録</h3>
+            <div class="overflow-auto" style=" height:294px; border: 1px solid #000000; font-size:32px;">
                 <table class="table" >
                   <thead class="text-center">
                     <tr>
                       <th scope="col">Lap time</th>
-                      
                     </tr>
                   </thead>
                   <tbody>
@@ -29,10 +28,10 @@
                 
             </div>
         </div>
-        <div class="col-3">
+        <div class="col-6">
             <h3>2020年7月</h3>
             
-            <table class="table table-bordered" style="width: 800px; height:400px;">
+            <table class="table table-bordered">
               <thead>
                 <tr>
                   @foreach (['日', '月', '火', '水', '木', '金', '土'] as $dayOfWeek)
