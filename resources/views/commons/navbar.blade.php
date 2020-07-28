@@ -14,11 +14,11 @@
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"  style="font-size : 24px">Select Page</a>
                     <ul class="dropdown-menu dropdown-menu-right">
                         {{-- ユーザ詳細ページへのリンク --}}
-                        <li class="dropdown-item">{!! link_to_route('users.index', 'Top', ['user' => Auth::id()]) !!}</li>
+                        <li class="dropdown-item">{!! link_to_route('users.index', 'Top', ) !!}</li>
                         <div class="dropdown-divider"></div>
-                        <li class="dropdown-item">{!! link_to_route('users.today', 'Today', ['user' => Auth::id()]) !!}</li>
+                        <li class="dropdown-item">{!! link_to_route('users.today', 'Today',) !!}</li>
                         <div class="dropdown-divider"></div>
-                        <li class="dropdown-item">{!! link_to_route('users.show', 'Show', ['user' => Auth::user()->name ]) !!}</li>
+                        <li class="dropdown-item">{!! link_to_route('users.show', 'Show', ['user' => $default ]) !!}</li>
                         <li class="dropdown-divider"></li>
                         {{-- ログアウトへのリンク --}}
                         <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout') !!}</li>

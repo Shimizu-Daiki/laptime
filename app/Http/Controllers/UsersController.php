@@ -8,6 +8,9 @@ use App\User; // 追加
 
 use App\Laptime; // 追加
 
+
+use Carbon\Carbon;
+
 class UsersController extends Controller
 {
     public function index()
@@ -19,9 +22,13 @@ class UsersController extends Controller
             $laptimes = $user->laptimes()->latest()->take(3)->get();
             
         }
+        $default= Carbon::now()->format('Y-m-d');
+        
        
         return view('users.index', [
             'laptimes' => $laptimes,
+            'default' => $default,
+            
         ]);
         
     }
@@ -70,14 +77,18 @@ class UsersController extends Controller
         // $user_id = \Auth::user()->id;
         $laptimes = Laptime::where('user_id', '=', $user_id)->whereDate('created_at', '=', $today)->get();
         
-        $number = count($laptimes);
         
-       
+        $dates = $this->getCalendarDates();
+        $currentMonth = Carbon::now()->month;
+        
+        $default= Carbon::now()->format('Y-m-d');
     
         return view('users.today', [
             'today_laptimes' => $laptimes,
             'date' => $today,
-            'number' =>$number,
+            'dates' => $dates,
+            'currentMonth' => $currentMonth,
+            'default' => $default,
             
         ]);
         
@@ -90,10 +101,22 @@ class UsersController extends Controller
         
         $laptimes = Laptime::where('user_id', '=', $user_id)->whereDate('created_at', '=', $date)->get();
         
+        $dates = $this->getCalendarDates();
+        $currentMonth = Carbon::now()->month;
+        
+        $default= Carbon::now()->format('Y-m-d');
+       
+        
         return view('users.show', [
             
             'laptimes' => $laptimes,
             'date' => $date,
+            'dates' => $dates,
+            'currentMonth' => $currentMonth,
+            'default' => $default,
+            
+            
+           
         ]);
         
     }
@@ -104,10 +127,13 @@ class UsersController extends Controller
         $user_id = \Auth::id();
         
         $laptime = Laptime::findOrFail($id);
+        
+        $default= Carbon::now()->format('Y-m-d');
 
-        // メッセージ編集ビューでそれを表示
+        
         return view('users.edit', [
             'laptime' => $laptime,
+            'default' => $default,
         ]);
     }
     
@@ -124,6 +150,23 @@ class UsersController extends Controller
 
         // トップページへリダイレクトさせる
         return redirect('/');
+    }
+    
+    public function getCalendarDates()
+    {
+        $yearMonth = Carbon::now()->firstOfMonth()->format('Y-m-d');
+        $date = new Carbon($yearMonth);
+        // カレンダーを四角形にするため、前月となる左上の隙間用のデータを入れるためずらす
+        $date->subDay($date->dayOfWeek);
+        // 同上。右下の隙間のための計算。
+        $count = 31 + $date->dayOfWeek;
+        $count = ceil($count / 7) * 7;
+        $dates = [];
+        for ($i = 0; $i < $count; $i++, $date->addDay()) {
+            // copyしないと全部同じオブジェクトを入れてしまうことになる
+            $dates[] = $date->copy();
+        }
+        return $dates;
     }
     
 }
