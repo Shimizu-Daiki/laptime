@@ -5,7 +5,7 @@
 @section('content')
    
     <div class ="row">
-        <div class="col-6">
+        <div class="col-md-6 col-sm-12">
             <h3>{{ $date }}の記録</h3>
             <div class="overflow-auto" style=" height:294px; border: 1px solid #000000; font-size:32px;">
                 <table class="table" >
@@ -28,7 +28,7 @@
                 
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6 col-sm-12">
             <h3>2020年7月</h3>
             
             <table class="table table-bordered">

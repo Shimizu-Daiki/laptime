@@ -80,7 +80,8 @@ class UsersController extends Controller
         
         $user_id = \Auth::id();
         // $user_id = \Auth::user()->id;
-        $laptimes = Laptime::where('user_id', '=', $user_id)->whereDate('created_at', '=', $today)->get();
+        $laptimes = Laptime::where('user_id', '=', $user_id)->whereDate('created_at', '=', $today)->orderBy('created_at')->get();
+       
         
         
         $dates = $this->getCalendarDates();
@@ -104,7 +105,7 @@ class UsersController extends Controller
         
         $user_id = \Auth::id();
         
-        $laptimes = Laptime::where('user_id', '=', $user_id)->whereDate('created_at', '=', $date)->get();
+        $laptimes = Laptime::where('user_id', '=', $user_id)->whereDate('created_at', '=', $date)->orderBy('created_at')->get();
         
         $dates = $this->getCalendarDates();
         $currentMonth = Carbon::now()->month;
@@ -149,7 +150,7 @@ class UsersController extends Controller
         ]);
         
         $laptime = Laptime::findOrFail($id);
-       
+    
         $laptime->content = $request->content;
         $laptime->save();
 
